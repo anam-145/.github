@@ -1,12 +1,17 @@
 ## What & why
-<!-- What changes, and why. The diff shows *what*; say *why*. -->
+<!-- What changes, and *why*. The diff already shows *what*; review needs the *why*. -->
 
 
-## Checklist
-- [ ] Short-lived, subject-named branch (`feat/…` · `fix/…` · `docs/…`)
-- [ ] `docker compose config` succeeds (if compose changed)
-- [ ] Healthcheck passes locally (if the service changed)
-- [ ] No plaintext secret in the diff — `git diff | grep -iE 'password|secret|key|token'`
+## For the reviewer
+<!-- How you tested, the risky part, anything you're unsure about, a linked issue (Closes #123).
+     Delete this section if there's nothing to add. -->
 
-<!-- How we ship: branch → PR → review → merge → deploy.
-     https://github.com/anam-145/anam145-infra/blob/main/docs/PR_WORKFLOW.md -->
+
+## Before merge — the parts CI can't judge for you
+- [ ] The description explains the **why**, not just the what
+- [ ] Docs updated if behaviour, config, or an interface changed
+- [ ] Any breaking change is called out above, and dependents are pinged
+
+<!-- CI already does the mechanical checks for you: commit-authors runs on this PR, and on merge
+     the deploy health-gates + smoke-tests the service. You do not re-verify those here.
+     How we ship: https://github.com/anam-145/anam145-infra/blob/main/docs/PR_WORKFLOW.md -->
